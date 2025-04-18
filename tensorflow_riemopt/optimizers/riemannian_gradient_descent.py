@@ -11,7 +11,7 @@ from tensorflow.python.ops import array_ops
 from tensorflow.python.ops import control_flow_ops
 from tensorflow.python.ops import math_ops
 from tensorflow.python.ops import state_ops
-from tensorflow.python.training import gen_training_ops
+from tensorflow.python.ops import gen_training_ops
 
 try:
     from keras.optimizer_v2.optimizer_v2 import OptimizerV2
