@@ -4,7 +4,10 @@ Becigneul, Gary, and Octavian-Eugen Ganea. "Riemannian Adaptive Optimization
 Methods." International Conference on Learning Representations. 2018.
 """
 from tensorflow.python.eager import def_function
-from tensorflow.python.framework import ops
+
+#from tensorflow.python.framework import ops
+import tensorflow as tf
+
 from tensorflow.python.keras import backend_config
 from tensorflow.python.keras.utils import generic_utils
 from tensorflow.python.ops import array_ops
@@ -105,7 +108,8 @@ class RiemannianAdam(OptimizerV2):
         apply_state[(var_device, var_dtype)].update(
             dict(
                 lr=lr,
-                epsilon=ops.convert_to_tensor_v2(self.epsilon, var_dtype),
+                #epsilon=ops.convert_to_tensor_v2(self.epsilon, var_dtype),
+                epsilon=tf.convert_to_tensor(self.epsilon, var_dtype),
                 beta_1_t=beta_1_t,
                 beta_1_power=beta_1_power,
                 one_minus_beta_1_t=1 - beta_1_t,
